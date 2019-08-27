@@ -16,6 +16,17 @@ class ViewController: UIViewController {
     }
     
     @IBAction func del(_ sender: UIButton) {
-        NotificationCenter.default.post(name: NSNotification.Name("A"), object: nil)
+        alert()
+    }
+    private func alert(){
+        let alertDelete = UIAlertController(title: "Do you want delete this item", message: "Yes/No", preferredStyle: .alert)
+        let no = UIAlertAction(title: "No", style: .cancel, handler: nil)
+        let yes = UIAlertAction(title: "Yes", style: .default) { (a) in
+            NotificationCenter.default.post(name: NSNotification.Name("A"), object: nil)
+        }
+        alertDelete.addAction(no)
+        alertDelete.addAction(yes)
+        present(alertDelete, animated: true, completion: nil)
     }
 }
+
