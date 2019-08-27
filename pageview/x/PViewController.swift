@@ -13,7 +13,7 @@ class PViewController: UIViewController {
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var lbl: UILabel!
     let nameImg:String
-    var nameAnimal:String
+    let nameAnimal:String
     let information:String
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,10 +32,6 @@ class PViewController: UIViewController {
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-    
-    @IBAction func deletePage(_ sender: UIButton) {
-        
     }
     
 

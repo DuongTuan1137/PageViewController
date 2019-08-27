@@ -9,8 +9,6 @@
 import UIKit
 
 class PageViewController: UIPageViewController,UIPageViewControllerDataSource,UIPageViewControllerDelegate {
-   
-    
 
     lazy var pages:[UIViewController] = {
         let page1 = PViewController(nameAnimal: "Hổ", information: " Hổ là một loại thú dữ ăn thịt sống, chúng dễ nhận biết nhất với các sọc vằn dọc sẫm màu trên bộ lông màu đỏ cam với phần bụng dưới sáng hơn", nameImg: "ho")
@@ -25,15 +23,37 @@ class PageViewController: UIPageViewController,UIPageViewControllerDataSource,UI
         
         return [page1,page2,page3,page4,page5]
     }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.dataSource = self
         self.delegate = self
-    
-        setViewControllers([pages[0]], direction: .forward, animated: false, completion: nil)
-        // Do any additional setup after loading the view.
+        setViewControllers([pages[0]], direction: .forward, animated: true, completion: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(del), name: NSNotification.Name("A"), object: nil)
     }
+    
+    @objc func del(){
+        let currentIndex = pages.firstIndex(of: viewControllers!.first!) ?? 0
+        if pages.count == 1 {return}
+        pages.remove(at: currentIndex)
+        self.dataSource = nil
+        self.dataSource = self
+        if currentIndex == pages.count {
+            setViewControllers([pages[0]], direction: .forward, animated: true, completion: nil)
+        } else{
+            setViewControllers([pages[currentIndex]], direction: .forward, animated: true, completion: nil)
+        }
+        
+        
+    }
+    
+    
+    required init?(coder: NSCoder) {
+        super.init(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
+    }
+    
+    
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         let currentIndex = pages.firstIndex(of: viewController) ?? 0
         if currentIndex <= 0 {return nil
@@ -48,6 +68,5 @@ class PageViewController: UIPageViewController,UIPageViewControllerDataSource,UI
         }
         return pages[currentIndex + 1]
     }
-
-
+    
 }

@@ -1,16 +1,67 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Sbj-F3-7Yw">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="qwS-b5-NZB">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Page View Controller-->
-        <scene sceneID="xER-AB-g1h">
+        <!--View Controller-->
+        <scene sceneID="NUk-jB-8As">
             <objects>
-                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="Sbj-F3-7Yw" customClass="PageViewController" customModule="x" customModuleProvider="target" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="usm-QC-Mei" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController storyboardIdentifier="ViewController" id="qwS-b5-NZB" customClass="ViewController" customModule="x" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="yAl-Gy-Xfr">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E2d-Ve-9WP">
+                                <rect key="frame" x="0.0" y="44" width="414" height="755"/>
+                                <connections>
+                                    <segue destination="nUj-ua-Xtk" kind="embed" id="UlV-S2-ESe"/>
+                                </connections>
+                            </containerView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aq8-xw-nkG">
+                                <rect key="frame" x="349" y="832" width="45" height="30"/>
+                                <state key="normal" title="Delete"/>
+                                <connections>
+                                    <action selector="del:" destination="qwS-b5-NZB" eventType="touchUpInside" id="hU8-qw-hOy"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="E2d-Ve-9WP" firstAttribute="top" secondItem="dUd-Uf-MTg" secondAttribute="top" id="94K-V1-KBG"/>
+                            <constraint firstItem="E2d-Ve-9WP" firstAttribute="leading" secondItem="dUd-Uf-MTg" secondAttribute="leading" id="LX4-mh-oGJ"/>
+                            <constraint firstItem="dUd-Uf-MTg" firstAttribute="trailing" secondItem="aq8-xw-nkG" secondAttribute="trailing" constant="20" id="O1a-H6-LG5"/>
+                            <constraint firstItem="E2d-Ve-9WP" firstAttribute="trailing" secondItem="dUd-Uf-MTg" secondAttribute="trailing" id="XOJ-Z4-olp"/>
+                            <constraint firstItem="aq8-xw-nkG" firstAttribute="bottom" secondItem="dUd-Uf-MTg" secondAttribute="bottom" id="yvo-bM-XBD"/>
+                            <constraint firstItem="aq8-xw-nkG" firstAttribute="top" secondItem="E2d-Ve-9WP" secondAttribute="bottom" constant="33" id="zSu-ck-sAx"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="dUd-Uf-MTg"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="g1I-In-fqX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-561" y="106"/>
+            <point key="canvasLocation" x="412" y="-9"/>
+        </scene>
+        <!--Page View Controller-->
+        <scene sceneID="JkN-DI-kez">
+            <objects>
+                <viewController storyboardIdentifier="PageViewController" id="nUj-ua-Xtk" customClass="PageViewController" customModule="x" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="CHB-o1-UBA">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="755"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="3QY-su-YFu"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Xyb-I0-USW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-746" y="7"/>
         </scene>
     </scenes>
 </document>
