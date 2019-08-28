@@ -40,7 +40,7 @@ class PageViewController: UIPageViewController,UIPageViewControllerDataSource,UI
         self.dataSource = nil
         self.dataSource = self
         if currentIndex == pages.count {
-            setViewControllers([pages[0]], direction: .forward, animated: true, completion: nil)
+            setViewControllers([pages[currentIndex - 1]], direction: .reverse, animated: true, completion: nil)
         } else{
             setViewControllers([pages[currentIndex]], direction: .forward, animated: true, completion: nil)
         }
